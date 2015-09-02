@@ -17,7 +17,7 @@ public class Gui extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField answerField;
 	private JButton one, two, three, four, five, six, seven, eight, nine, zero,
-			add, multiply, div, equls, minus;
+			add, multiply, div, equls, minus,clear;
 	private String stemp1, stemp2, sanswer;
 	private Double answer = 0.0;
 	private JPanel contentpanel;
@@ -48,6 +48,7 @@ public class Gui extends JFrame {
 		multiply = new JButton("*");
 		div = new JButton("/");
 		equls = new JButton("=");
+		clear = new JButton("C");
 
 		Calc c = new Calc();
 		Numbers n = new Numbers();
@@ -69,6 +70,7 @@ public class Gui extends JFrame {
 		multiply.addActionListener(c);
 		div.addActionListener(c);
 		equls.addActionListener(c);
+		clear.addActionListener(c);
 
 		contentpanel = new JPanel();
 		contentpanel.setBounds(50, 50, 500, 400);
@@ -92,6 +94,7 @@ public class Gui extends JFrame {
 		contentpanel.add(multiply);
 		contentpanel.add(div);
 		contentpanel.add(equls);
+		contentpanel.add(clear);
 
 		this.setContentPane(contentpanel);
 
@@ -356,6 +359,10 @@ public class Gui extends JFrame {
 					}
 				}
 
+			}
+			if(src.equals(clear))
+			{
+				answerField.setText(null);
 			}
 		}
 	}
